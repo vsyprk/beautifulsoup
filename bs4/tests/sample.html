@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://vsyprk.github.io/mango/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Vivian's Website :)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      background-color: #40302c;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-family: Garamond, serif;
+      background-color: #c8daf1;
+      color: #40302c;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      gap: 50px;
+    }
+
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 1000px;
+      gap: 40px;
+    }
+
+    .intro img {
+      width: 300px;
+      /*border-radius: 10px;*/
+      border: 4px solid #5c788b;
+    }
+
+    .intro-text {
+      max-width: 500px;
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .intro-text p {
+      margin-bottom: 1em;
+    }
+
+    .nav-prompt {
+      margin-top: 50px;
+      text-align: center;
+      width: 100%;
+    }
+    .arrow {
+        font-size: 36px;
+        animation: bounce 1.5s infinite;
+        cursor: pointer;
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(10px); }
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .definition-block {
+      font-size: 15pt;
+      margin-top: 110px;
+      margin-bottom: 20px;
+      margin-left: 150px;
+      margin-right:150px;
+      text-align: left;
+    }
+
+    .sticker-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    /* Container wraps each sticker + overlay */
+    .container {
+      position: relative;
+      display: inline-block;
+      width: 350px;
+      height: 350px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    /* Link fills container */
+    .container a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    /* Sticker image styling */
+    .container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      transition: transform 0.2s ease;
+      display: block;
+    }
+
+    /* Slight zoom on hover */
+    .container a:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Overlay styling */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 10px;
+
+      /* Center text */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #fafafa;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+
+      pointer-events: none; /* so hover works on link */
+    }
+
+    .overlay div {
+        text-shadow:
+            4px 4px 6px rgba(0, 0, 0, 0.8),
+            -4px -4px 6px rgba(0, 0, 0, 0.8);
+    }
+
+        /* Show overlay on hover */
+          .container a:hover .overlay {
+            opacity: 1;
+          }
+
+        footer {
+            background-color: #40302c;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #fafafa;
+        }
+
+        footer a {
+            margin: 10px;
+            text-decoration: none;
+            color: #fafafa;
+        }
+
+        footer a:hover {
+            font-style: italic;
+        }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Welcome to Vivian's website!</h1>
+  </header>
+
+  <main>
+
+    <section class="intro">
+      <img src="./Vivian's Website _)_files/me.JPG" alt="Vivian's photo">
+      <div class="intro-text">
+
+      <h3>Hi, I'm Vivian!</h3>
+      <p>The question “Who are you?” has always made me pause, not because I don’t know, but because I’ve never been just one thing.  
+      I love storytelling through writing, creating art like sketches and nail designs, and building things through code. I’m drawn to both imagination and structure, creativity and technology.  
+      For a long time, I wasn’t sure how it all connected.</p>
+
+      <p>Then came <strong>mediocremango</strong>, and slowly, the answer started to take shape.  
+      So… what is a mediocremango?</p>
+
+
+      </div>
+
+      <div class="nav-prompt">
+        <h2>What's a mediocremango?</h2>
+        <div class="arrow">↓</div>
+      </div>
+
+    </section>
+
+    <main>
+      <section class="stickers" id="stickers">
+
+        <div class="definition-block">
+          <h3>
+            <span class="term">mediocremango</span>
+            <span class="pronunciation">/ˌmē-dē-ˈō-krə-ˌmaŋ-gō/</span>
+            <span class="pos">(n.)</span>
+          </h3>
+
+            <p><strong>1.</strong> A digital personification of Vivian Park. What began as a video game username coined at age 15 became her go-to persona on nearly every platform—and eventually, a part of her identity.</p>
+
+            <p><strong>2.</strong> A thematic umbrella for Vivian’s creative pursuits: <strong>mangoblog</strong> (a space for writing and storytelling), <strong>mangonails</strong> (a visual diary of experimental nail art), and <strong>mangoprojects</strong> (a home for code, design, and things she builds).</p>
+
+            <p><strong>Origin:</strong> A blend of “mediocre” (a playful nod to imperfection) and “mango” (her favorite fruit), brought together with a love for alliteration. </p>
+
+            <p><strong>Synonyms:</strong> digital diary, fruit-flavored identity</p>
+
+            <p><strong>See also:</strong> <em>Vivian Park</em>, <em>personal expression</em>, <em>passion archive</em></p>
+
+        </div>
+
+
+        
+        <div class="sticker-links">
+          <div class="container">
+            <a href="https://vsyprk.github.io/mango/mangoblog.html">
+              <img src="./Vivian's Website _)_files/daisy.png" alt="Daisy Sticker">
+              <div class="overlay"><div>mango blog</div></div>
+            </a>
+          </div>
+          <div class="container">
+            <a href="https://vsyprk.github.io/mango/mangonails.html">
+              <img src="./Vivian's Website _)_files/star.png" alt="Star Sticker">
+              <div class="overlay"><div>mango nails</div></div>
+            </a>
+          </div>
+          <div class="container">
+            <a href="https://vsyprk.github.io/mango/mangoproj.html">
+              <img src="./Vivian's Website _)_files/heart4.png" alt="Heart Sticker">
+              <div class="overlay"><div>mango projects</div></div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </main>
+
+  <footer>
+    <p>Follow me!</p>
+    <a href="https://www.linkedin.com/in/vivian-park12/">LinkedIn</a>
+    <a href="https://github.com/vsyprk">GitHub</a>
+    <a href="https://www.instagram.com/vsyprk/">Instagram</a>
+    <a href="https://open.spotify.com/user/vivianpark2004?si=d85522d788d74591">Spotify</a>
+    <p style="color: #5c788b;">pvivian@umich.edu</p>
+  </footer>
+
+  <script>
+      document.querySelector(".arrow").addEventListener("click", function() {
+          document.querySelector("#stickers").scrollIntoView({ behavior: 'smooth' });
+      });
+  </script>
+
+
+
+</body></html>
