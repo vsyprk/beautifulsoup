@@ -125,6 +125,9 @@ class AnnouncingParser(HTMLParser):
         attrs: List[Tuple[str, Optional[str]]],
         handle_empty_element: bool = True,
     ) -> None:
+        replacer = getattr(self.soup, 'replacer', None) or getattr(self, 'replacer', None)
+        if replacer is not None:
+            name = replacer.replace_tag_name(name)
         self._p(f"{name} {attrs} START")
 
     def handle_endtag(self, name: str, check_already_closed: bool = True) -> None:

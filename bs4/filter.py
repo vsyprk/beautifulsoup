@@ -680,3 +680,17 @@ class SoupStrainer(ElementFilter):
         :meta private:
         """
         return element if self.match(element) else None
+
+
+class SoupReplacer(object):
+    """Specifies tag replacement rules during parsing."""
+    
+    def __init__(self, og_tag, alt_tag):
+        self.og_tag = og_tag
+        self.alt_tag = alt_tag
+
+    def replace_tag_name(self, name):
+        """Returns the alternative tag name if it matches og_tag, else original name."""
+        if name == self.og_tag:
+            return self.alt_tag
+        return name

@@ -91,6 +91,7 @@ from .formatter import Formatter
 from .filter import (
     ElementFilter,
     SoupStrainer,
+    SoupReplacer,
 )
 from typing import (
     Any,
@@ -215,6 +216,7 @@ class BeautifulSoup(Tag):
         from_encoding: Optional[_Encoding] = None,
         exclude_encodings: Optional[_Encodings] = None,
         element_classes: Optional[Dict[Type[PageElement], Type[PageElement]]] = None,
+        replacer=None,
         **kwargs: Any,
     ):
         """Constructor.
@@ -429,6 +431,10 @@ class BeautifulSoup(Tag):
                 warnings.warn(
                     "Keyword arguments to the BeautifulSoup constructor will be ignored. These would normally be passed into the TreeBuilder constructor, but a TreeBuilder instance was passed in as `builder`."
                 )
+
+        self.__dict__["replacer"] = replacer
+        if builder is not None:
+            builder.replacer = replacer
 
         self.builder = builder
         self.is_xml = builder.is_xml
