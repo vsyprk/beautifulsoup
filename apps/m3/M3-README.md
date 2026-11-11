@@ -15,3 +15,6 @@
 I recommend keeping a unified hybrid API that supports both styles in a single constructor. 
 
 Simple renames shouldn't force users to write lambdas, but complex tasks need functional power. By supporting both positional tag pairs and keyword transformer functions (`name_xformer`, `attrs_xformer`, `xformer`), we give developers an easy entry point while keeping single-pass performance for advanced tree modifications.
+
+run test cases: pytest bs4/tests/test_replacer_m3.py
+run task 7: apps/m3/task7.py bs4/tests/sample.html output.html
