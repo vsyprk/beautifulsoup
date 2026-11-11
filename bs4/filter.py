@@ -683,14 +683,52 @@ class SoupStrainer(ElementFilter):
 
 
 class SoupReplacer(object):
-    """Specifies tag replacement rules during parsing."""
-    
-    def __init__(self, og_tag, alt_tag):
+    """Specifies tag replacement and transformation rules during parsing."""
+
+    def __init__(
+        self,
+        og_tag=None,
+        alt_tag=None,
+        name_xformer=None,
+        attrs_xformer=None,
+        xformer=None,
+    ):
         self.og_tag = og_tag
         self.alt_tag = alt_tag
+        self.name_xformer = name_xformer
+        self.attrs_xformer = attrs_xformer
+        self.xformer = xformer
 
     def replace_tag_name(self, name):
         """Returns the alternative tag name if it matches og_tag, else original name."""
-        if name == self.og_tag:
+        if self.og_tag and name == self.og_tag:
             return self.alt_tag
         return name
+
+    def transform(self, tag):
+        """Applies name transformations, attribute updates, and side-effect transformers in-place."""
+        original_name = tag.name
+        
+        # Milestone 2 static tag replacement
+        if self.og_tag and tag.name == self.og_tag:
+            tag.name = self.alt_tag
+
+        # Milestone 3 functional transformers
+        if self.name_xformer:
+            new_name = self.name_xformer(tag)
+            if new_name is not None:
+                tag.name = new_name
+
+        if self.attrs_xformer:
+            current_name = tag.name
+            tag.name = original_name
+            new_attrs = self.attrs_xformer(tag)
+            tag.name = current_name
+
+            if new_attrs is not None and isinstance(new_attrs, dict):
+                tag.attrs = new_attrs
+
+        if self.xformer:
+            self.xformer(tag)
+
+        return tag

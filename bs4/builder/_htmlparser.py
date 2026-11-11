@@ -185,6 +185,9 @@ class BeautifulSoupHTMLParser(HTMLParser, DetectsXMLParsedAsHTML):
         tag = self.soup.handle_starttag(
             name, None, None, attr_dict, sourceline=sourceline, sourcepos=sourcepos
         )
+        replacer = getattr(self.soup, 'replacer', None) or getattr(self, 'replacer', None)
+        if replacer is not None and tag is not None:
+            replacer.transform(tag)
         if tag and tag.is_empty_element and handle_empty_element:
             # Unlike other parsers, html.parser doesn't send separate end tag
             # events for empty-element tags. (It's handled in
