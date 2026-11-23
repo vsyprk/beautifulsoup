@@ -508,6 +508,16 @@ class BeautifulSoup(Tag):
         clone.original_encoding = self.original_encoding
         return clone
 
+    def __iter__(self) -> Iterator[PageElement]:
+        """Iterate over all nodes in the parse tree one at a time in depth-first
+        pre-order without collecting nodes into a list.
+        """
+        current: Optional[PageElement] = self.next_element
+        while current is not None:
+            next_node: Optional[PageElement] = current.next_element
+            yield current
+            current = next_node
+
     def __getstate__(self) -> Dict[str, Any]:
         # Frequently a tree builder can't be pickled.
         d = dict(self.__dict__)
